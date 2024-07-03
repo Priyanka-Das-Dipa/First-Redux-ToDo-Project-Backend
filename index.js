@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb://localhost:27017`;
+const uri = `mongodb+srv://dipapriyanka24:IrBHOa3AkTikaRSZ@cluster0.lel1kxd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -29,6 +29,7 @@ const run = async () => {
 
     app.post("/task", async (req, res) => {
       const task = req.body;
+      console.log(task);
       const result = await taskCollection.insertOne(task);
       res.send(result);
     });
